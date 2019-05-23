@@ -52,7 +52,7 @@ variable "map_accounts_count" {
 
 variable "map_roles" {
   description = "Additional IAM roles to add to the aws-auth configmap. See examples/basic/variables.tf for example format."
-  type        = list(object)
+  type        = list
   default     = []
 }
 
@@ -64,7 +64,7 @@ variable "map_roles_count" {
 
 variable "map_users" {
   description = "Additional IAM users to add to the aws-auth configmap. See examples/basic/variables.tf for example format."
-  type        = list(object)
+  type        = list
   default     = []
 }
 
@@ -92,7 +92,7 @@ variable "vpc_id" {
 
 variable "worker_groups" {
   description = "A list of maps defining worker group configurations to be defined using AWS Launch Configurations. See workers_group_defaults for valid keys."
-  type        = list(object)
+  type        = list
 
   default = [
     {
@@ -116,7 +116,7 @@ variable "workers_group_defaults" {
 
 variable "worker_group_tags" {
   description = "A map defining extra tags to be applied to the worker group ASG."
-  type        = map(object)
+  type        = map
 
   default = {
     default = []
@@ -125,7 +125,7 @@ variable "worker_group_tags" {
 
 variable "worker_groups_launch_template" {
   description = "A list of maps defining worker group configurations to be defined using AWS Launch Templates. See workers_group_defaults for valid keys."
-  type        = list(object)
+  type        = list
 
   default = [
     {
@@ -136,7 +136,7 @@ variable "worker_groups_launch_template" {
 
 variable "worker_groups_launch_template_mixed" {
   description = "A list of maps defining worker group configurations to be defined using AWS Launch Templates. See workers_group_defaults for valid keys."
-  type        = list(object)
+  type        = list
 
   default = [
     {
