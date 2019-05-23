@@ -106,8 +106,12 @@ resource "aws_autoscaling_group" "workers" {
         "propagate_at_launch" = false
       },
       {
-        "key"                 = "k8s.io/cluster-autoscaler/${aws_eks_cluster.this.name}"
-        "value"               = ""
+        "key" = "k8s.io/cluster-autoscaler/${aws_eks_cluster.this.name}"
+        "value" = lookup(
+          var.worker_groups[count.index],
+          "autoscaling_enabled",
+          local.workers_group_defaults["autoscaling_enabled"],
+        )
         "propagate_at_launch" = false
       },
       {
